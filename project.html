@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weather Application</title>
+    <script>
+        function getData() {
+            var cityname = document.getElementById("city").value;
+            var temp = "";
+            const url = "https://api.openweathermap.org/data/2.5/weather?q="+cityname+"&units=metric&appid=6bfe8d2f824cb82d1425f60737c2cc4e";
+            fetch(url)
+            .then((res) => 
+                  res.json())
+                  .then((data) => {
+                    //console.log(data.main.temp);
+                    //var temp = data.main.temp;
+                    //temp = temp +"celsius";
+                    //document.getelementById("currentweather").innerText=temp;
+                    console.log(data.main.temp);
+                    var temp = data.main.temp;
+                    temp = temp + "Celsius"
+                    document.getElementById("currentweather").innerText = temp;
+                  });
+                  
+        }
+        
+    </script>
+    <style>
+        body{
+            margin: 0;
+            padding: 0;
+            background-color: #efefef;
+
+        }
+
+        .container{
+            margin-left: auto;
+            margin-right: auto;
+            margin-top: 40px;
+            height: 300px;
+            width: 400px;
+            background-color: white;
+            padding: 50px;
+            border-radius: 10px;
+            box-shadow: #efefef;
+        }
+
+        #city{
+            width: 250px;
+            border: 1px solid dodgerblue; 
+            height: 30px;
+            border-radius: 10px;
+        }
+        .weather{
+            margin-top: 35px;
+            margin-left: auto;
+            margin-right: auto;
+            width: fit-content;
+        }
+        #currentweather{
+            margin-bottom: 120px;
+        }
+        .action{
+            background-color: dodgerblue;
+            width: 150px;
+            height: 30px;
+            border-radius: 10px;
+            border: none;
+            margin-top: 15px;
+            margin-left: auto;
+            margin-right: auto;
+            display: block;
+            cursor: pointer;
+
+        }
+    </style>
+</head>
+<body>
+    <h1>Weather Details</h1>
+    <h3>Lets begin!!!</h3>
+    <div class="container">
+        Enter City Name: <input type="text" id="city" placeholder=" City ">
+        <div class="weather">
+            <img src="unnamed.png" alt="" height="100" width="100">
+
+            <div class="span-container" id="currentweather">
+                <span id="currentweather">Current weather</span>
+            </div>
+            <button class="action" onclick="getData()">Get Details</button>
+        
+            <p> Hope you have a great day ahead!
+            </p>
+        </div>
+    </div>
+   
+</body>
+</html>
+<!--https://www.shutterstock.com/image-vector/cartoon-animated-weather-web-icon-clipart-2195622737-->
