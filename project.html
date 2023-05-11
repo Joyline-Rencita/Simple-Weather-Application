@@ -14,10 +14,6 @@
             .then((res) => 
                   res.json())
                   .then((data) => {
-                    //console.log(data.main.temp);
-                    //var temp = data.main.temp;
-                    //temp = temp +"celsius";
-                    //document.getelementById("currentweather").innerText=temp;
                     console.log(data.main.temp);
                     var temp = data.main.temp;
                     temp = temp + "Celsius"
@@ -55,7 +51,7 @@
         }
         .weather{
             margin-top: 35px;
-            margin-left: auto;
+            margin-left: 160px;
             margin-right: auto;
             width: fit-content;
         }
@@ -69,11 +65,17 @@
             border-radius: 10px;
             border: none;
             margin-top: 15px;
-            margin-left: auto;
+            margin-left: -15px;
             margin-right: auto;
             display: block;
             cursor: pointer;
-
+            color: white;
+        }
+        #p1{
+            margin-left: -35px;
+        }
+        #b1{
+            margin-top: -50px;
         }
     </style>
 </head>
